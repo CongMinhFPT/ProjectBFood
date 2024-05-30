@@ -1,0 +1,5 @@
+package system.bfood.config;
+
+public class JwtTokenValidator {
+
+}

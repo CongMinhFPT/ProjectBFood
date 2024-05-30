@@ -1,0 +1,11 @@
+package system.bfood.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import system.bfood.model.Restaurant;
+
+public interface RetaurantRepository extends JpaRepository<Restaurant, Long> {
+	
+	Restaurant findByOwner(String query);
+
+}

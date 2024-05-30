@@ -1,0 +1,5 @@
+package system.bfood.service;
+
+public interface RestaurantService {
+
+}

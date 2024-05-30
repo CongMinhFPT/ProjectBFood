@@ -1,0 +1,5 @@
+package system.bfood.model;
+
+public class Food {
+
+}
