@@ -1,0 +1,5 @@
+package system.bfood.request;
+
+public class IngredientCategoryRequest {
+
+}
