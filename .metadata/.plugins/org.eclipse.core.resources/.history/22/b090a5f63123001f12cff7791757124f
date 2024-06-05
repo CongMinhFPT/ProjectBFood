@@ -1,0 +1,5 @@
+package system.bfood.serviceImp;
+
+public class OrderServiceImp {
+
+}

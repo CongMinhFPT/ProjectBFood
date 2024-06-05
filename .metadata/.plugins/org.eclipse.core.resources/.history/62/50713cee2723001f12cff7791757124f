@@ -1,0 +1,9 @@
+package system.bfood.service;
+
+import system.bfood.model.CartItem;
+import system.bfood.request.AddCartItemRequest;
+
+public interface CartService {
+
+	public CartItem addItemToCart(AddCartItemRequest req, String jwt) throws Exception;
+}
