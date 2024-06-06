@@ -56,10 +56,17 @@
 		<item key="updateSimilarElementsMatchStrategy" value="1"/>
 	</section>
 	<section name="NewInterfaceCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="138"/>
-		<item key="DIALOG_Y_ORIGIN" value="155"/>
+		<item key="DIALOG_X_ORIGIN" value="207"/>
+		<item key="DIALOG_Y_ORIGIN" value="154"/>
 		<item key="DIALOG_WIDTH" value="579"/>
 		<item key="DIALOG_HEIGHT" value="546"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="NewEnumCreationWizard.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="235"/>
+		<item key="DIALOG_Y_ORIGIN" value="173"/>
+		<item key="DIALOG_WIDTH" value="542"/>
+		<item key="DIALOG_HEIGHT" value="520"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 </section>
