@@ -1,5 +1,0 @@
-package system.bfood.repository;
-
-public interface CategoryRepository {
-
-}

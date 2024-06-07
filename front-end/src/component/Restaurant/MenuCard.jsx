@@ -21,6 +21,9 @@ const demo = [
   },
 ];
 const MenuCard = () => {
+  const handleCheckBoxChange = (value) => {
+    console.log("value");
+  };
   return (
     <Accordion>
       <AccordionSummary
@@ -50,18 +53,20 @@ const MenuCard = () => {
               <div key={index}>
                 <p>{item.category}</p>
                 <FormGroup>
-                  {item.ingerdients.map((ingredient, idx) => (
+                  {item.ingerdients.map((item, idx) => (
                     <FormControlLabel
                       key={idx}
-                      control={<Checkbox />}
-                      label={ingredient}
+                      control={
+                        <Checkbox onChange={() => handleCheckBoxChange(item)} />
+                      }
+                      label={item}
                     />
                   ))}
                 </FormGroup>
               </div>
             ))}
           </div>
-          <div className="pt-8">
+          <div className="pt-5">
             <Button variant="contained" disabled={false} type="submit">
               {true ? "Add to Cart" : "Out Of Stock"}
             </Button>
