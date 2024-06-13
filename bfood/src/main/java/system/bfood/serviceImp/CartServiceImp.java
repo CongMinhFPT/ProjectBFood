@@ -3,6 +3,7 @@ package system.bfood.serviceImp;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import system.bfood.model.Cart;
 import system.bfood.model.CartItem;
@@ -15,6 +16,7 @@ import system.bfood.service.CartService;
 import system.bfood.service.FoodService;
 import system.bfood.service.UserService;
 
+@Service
 public class CartServiceImp implements CartService {
 	
 	@Autowired

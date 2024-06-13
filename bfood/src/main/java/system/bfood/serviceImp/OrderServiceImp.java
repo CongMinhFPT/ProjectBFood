@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import system.bfood.model.Address;
 import system.bfood.model.Cart;
@@ -23,6 +24,7 @@ import system.bfood.service.CartService;
 import system.bfood.service.OrderService;
 import system.bfood.service.RestaurantService;
 
+@Service
 public class OrderServiceImp implements OrderService {
 
 	@Autowired
