@@ -56,6 +56,7 @@ export const authReducer = (state = initialState, action) => {
       };
     case LOGOUT:
       return initialState;
+
     case REGISTER_FAILURE:
     case LOGIN_FAILURE:
     case GET_USER_FAILURE:

@@ -1,15 +1,14 @@
 import React from "react";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import HomeIcon from "@mui/icons-material/Home";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EventIcon from "@mui/icons-material/Event";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { AddReaction } from "@mui/icons-material";
 import { Divider, Drawer, useMediaQuery } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../State/Authentication/Action";
+import { useNavigate } from "react-router-dom";
 
 const menu = [
   { title: "Orders", icon: <ShoppingBagIcon /> },
@@ -28,8 +27,7 @@ const ProfileNavigation = ({ open, handleClose }) => {
     if (item.title === "Logout") {
       dispatch(logout());
       navigate("/");
-    }
-    navigate(`/my-profile/${item.title.toLowerCase()}`);
+    } else navigate(`/my-profile/${item.title.toLowerCase()}`);
   };
   return (
     <div>

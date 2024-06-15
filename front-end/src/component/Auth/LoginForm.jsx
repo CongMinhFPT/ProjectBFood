@@ -24,7 +24,7 @@ export const LoginForm = () => {
         <Form>
           <Field
             as={TextField}
-            name="Email"
+            name="email"
             label="Email"
             fullWidth
             variant="outlined"
@@ -32,7 +32,7 @@ export const LoginForm = () => {
           />
           <Field
             as={TextField}
-            name="Password"
+            name="password"
             label="Password"
             fullWidth
             variant="outlined"

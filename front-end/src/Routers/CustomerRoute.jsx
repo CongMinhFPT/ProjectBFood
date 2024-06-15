@@ -1,11 +1,11 @@
 import React from "react";
-import { Navbar } from "../Navbar/Navbar";
+import { Navbar } from "../component/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
-import RestaurantDetails from "../Restaurant/RestaurantDetails";
-import Cart from "../Cart/Cart";
-import Profile from "../Profile/Profile";
-import Home from "../Home/Home";
-import Auth from "../Auth/Auth";
+import RestaurantDetails from "../component/Restaurant/RestaurantDetails";
+import Cart from "../component/Cart/Cart";
+import Profile from "../component/Profile/Profile";
+import Auth from "../component/Auth/Auth";
+import Home from "../component/Home/Home";
 
 const CustomerRoute = () => {
   return (
