@@ -2110,3 +2110,7 @@
 2024-06-14 00:11:36,126 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Spring-ReactJS\ProjectBFood\bfood\src\test\resources
 2024-06-14 16:28:43,496 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2024-06-15 20:29:37,569 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-06-19 19:49:59,102 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-06-19 23:00:05,678 [Worker-17: Launching bfood - BfoodApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-06-19 23:00:05,702 [Worker-17: Launching bfood - BfoodApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-06-19 23:00:05,706 [Worker-17: Launching bfood - BfoodApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Spring-ReactJS\ProjectBFood\bfood\src\test\resources
