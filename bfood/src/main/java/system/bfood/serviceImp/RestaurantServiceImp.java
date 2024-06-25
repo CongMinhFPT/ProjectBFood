@@ -73,8 +73,8 @@ public class RestaurantServiceImp implements RestaurantService{
 
 	@Override
 	public List<Restaurant> getAllRestaurant() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return restaurantRepository.findAll();
 	}
 
 	@Override
@@ -108,7 +108,7 @@ public class RestaurantServiceImp implements RestaurantService{
 		
 		RestaurantDTO dto = new RestaurantDTO();
 		dto.setDescription(restaurant.getDescription());
-		dto.setImage(restaurant.getImages());
+		dto.setImages(restaurant.getImages());
 		dto.setTitle(restaurant.getName());
 		dto.setId(restaurantId);
 		

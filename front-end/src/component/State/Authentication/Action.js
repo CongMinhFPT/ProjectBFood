@@ -80,7 +80,7 @@ export const addToFavorite =
     dispatch({ type: ADD_TO_FAVORITE_REQUEST });
     try {
       const { data } = await api.put(
-        `/api/restaurants/${restaurantId}/add-favorite`,
+        `/api/restaurants/${restaurantId}/add-favorites`,
         {},
         {
           headers: {
@@ -88,7 +88,7 @@ export const addToFavorite =
           },
         }
       );
-      dispatch({ type: ADD_TO_FAVORITE_SUCCESS, payload: data.jwt });
+      dispatch({ type: ADD_TO_FAVORITE_SUCCESS, payload: data });
       console.log("add to favorite", data);
     } catch (error) {
       dispatch({ type: ADD_TO_FAVORITE_FAILURE, payload: error });

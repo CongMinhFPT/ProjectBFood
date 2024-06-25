@@ -5,11 +5,17 @@ import {
   RadioGroup,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { FormControlLabel, Radio } from "@mui/material";
 import MenuCard from "./MenuCard";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getRestaurantById,
+  getRestaurantsCategory,
+} from "../State/Restaurant/Action";
 
 const categories = ["pizza", "biryani", "burger", "chicken", "rice"];
 
@@ -23,10 +29,23 @@ const foodTypes = [
 const menu = [1, 1, 1, 1, 1, 1];
 const RestaurantDetails = () => {
   const [foodType, setFoodType] = useState("all");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const jwt = localStorage.getItem("jwt");
+  const { auth, restaurant } = useSelector((store) => store);
+
+  const { id, city } = useParams();
 
   const handleFilter = (e) => {
     console.log(e.target.value, e.target.name);
   };
+
+  console.log("restaurant", restaurant);
+
+  useEffect(() => {
+    dispatch(getRestaurantById({ jwt, restaurantId: id }));
+    dispatch(getRestaurantsCategory({ jwt, restaurantId: id }));
+  }, []);
   return (
     <div className="px-5 lg:px-20">
       <section>
@@ -38,14 +57,14 @@ const RestaurantDetails = () => {
             <Grid item xs={12}>
               <img
                 className="w-full h-[40vh] object-cover"
-                src="https://cdn.pixabay.com/photo/2023/08/30/17/29/ai-generated-8223836_640.jpg"
+                src={restaurant.restaurant?.images[0]}
                 alt=""
               />
             </Grid>
             <Grid item xs={12} lg={6}>
               <img
                 className="w-full h-[40vh] object-cover"
-                src="https://cdn.pixabay.com/photo/2023/08/30/17/29/ai-generated-8223836_640.jpg"
+                src={restaurant.restaurant?.images[1]}
                 alt=""
               />
             </Grid>
@@ -59,10 +78,11 @@ const RestaurantDetails = () => {
           </Grid>
         </div>
         <div className="pt-3 pb-5">
-          <h1 className="text-4xl font-semibold">Indian Fast Food</h1>
+          <h1 className="text-4xl font-semibold">
+            {restaurant.restaurant?.name}
+          </h1>
           <p className="text-gray-500 mt-1">
-            Lorem ipsum sit amet consectetur adipisicing elit. Nam aliquam
-            maiores blanditiis mollitia sunt
+            {restaurant.restaurant?.description}
           </p>
           <div className="space-y-3 mt-3">
             <p className="text-gray-500 flex items-center gap-3">

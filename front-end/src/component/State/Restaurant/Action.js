@@ -37,13 +37,13 @@ import {
   UPDATE_RESTAURANT_STATUS_SUCCESS,
   UPDATE_RESTAURANT_SUCCESS,
 } from "./ActionType";
-import { API_URL, api } from "../../config/api";
+import { api } from "../../config/api";
 
 export const getAllRestaurantsAction = (token) => {
   return async (dispatch) => {
     dispatch({ type: GET_ALL_RESTAURANT_REQUEST });
     try {
-      const { data } = await api.get(`/api/restaurants`, {
+      const { data } = await api.get("/api/restaurants", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -57,12 +57,12 @@ export const getAllRestaurantsAction = (token) => {
   };
 };
 
-export const getAllRestaurantById = (reqData) => {
+export const getRestaurantById = (reqData) => {
   return async (dispatch) => {
     dispatch({ type: GET_RESTAURANT_BY_ID_REQUEST });
     try {
       const response = await api.get(
-        `/api/restaurants/${reqData.restaurantId}`,
+        `api/restaurants/${reqData.restaurantId}`,
         {
           headers: {
             Authorization: `Bearer ${reqData.jwt}`,
@@ -127,7 +127,7 @@ export const updateRestaurant = ({ restaurantId, restaurantData, jwt }) => {
           },
         }
       );
-      console.log("create restaurant success", data);
+      console.log("create restaurant success", res.data);
       dispatch({ type: UPDATE_RESTAURANT_SUCCESS, payload: res.data });
     } catch (error) {
       console.log("error", error);
@@ -168,7 +168,7 @@ export const updateRestaurantStatus = ({ restaurantId, jwt }) => {
         }
       );
       dispatch({ type: UPDATE_RESTAURANT_STATUS_SUCCESS, payload: res.data });
-      console.log("UPDATE restaurant status success", data);
+      console.log("UPDATE restaurant status success", res.data);
     } catch (error) {
       console.log("error", error);
       dispatch({ type: UPDATE_RESTAURANT_STATUS_FAILURE, payload: error });
@@ -270,11 +270,11 @@ export const createCategoryAction = ({ reqData, jwt }) => {
   };
 };
 
-export const getRestaurantsCategory = ({ restaurantId, jwt }) => {
+export const getRestaurantsCategory = ({ jwt, restaurantId }) => {
   return async (dispatch) => {
     dispatch({ type: GET_RESTAURANTS_CATEGORY_REQUEST });
     try {
-      const res = await api.get(`/api/category/restaurant${restaurantId}`, {
+      const res = await api.get(`/api/category/restaurant/${restaurantId}`, {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
