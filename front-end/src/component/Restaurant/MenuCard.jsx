@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import { categorizeIngredients } from "../util/categorizeIngredients";
 
-    category: "Protein",
 const MenuCard = ({ item }) => {
   const handleCheckBoxChange = (value) => {
     console.log("value");
