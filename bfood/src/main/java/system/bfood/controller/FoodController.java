@@ -39,9 +39,10 @@ public class FoodController {
 	}
 	
 	@GetMapping("/restaurant/{restaurantId}")
-	public ResponseEntity<List<Food>> getRestaurantFood(@RequestParam boolean vagetarian,
-			@RequestParam boolean seasonal,
-			@RequestParam boolean nonveg,
+	public ResponseEntity<List<Food>> getRestaurantFood(
+			@RequestParam (required = false) boolean vagetarian,
+			@RequestParam (required = false) boolean seasonal,
+			@RequestParam (required = false) boolean nonveg,
 			@RequestParam(required = false) String food_category,
 			@PathVariable Long restaurantId,
 			@RequestHeader ("Authorization") String jwt) throws Exception{

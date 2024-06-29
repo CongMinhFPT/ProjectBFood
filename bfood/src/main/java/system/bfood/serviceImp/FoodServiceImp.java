@@ -1,5 +1,6 @@
 package system.bfood.serviceImp;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,12 +28,15 @@ public class FoodServiceImp implements FoodService {
 		food.setFoodCategory(category);
 		food.setRestaurant(restaurant);
 		food.setDescription(req.getDescription());
-		food.setImage(req.getImage());
+		food.setImages(req.getImages());
 		food.setName(req.getName());
 		food.setPrice(req.getPrice());
-		food.setIngredients(req.getIngredientsItems());
-		food.setSeasonal(req.isSeasional());
+		food.setIngredients(req.getIngredients());
 		food.setVegetarian(req.isVegetarin());
+		food.setSeasonal(req.isSeasional());
+		food.setCreationDate(new Date());
+		food.setVegetarian(true);
+
 		
 		Food saveFood = foodRepository.save(food);
 		restaurant.getFoods().add(saveFood);
@@ -61,7 +65,7 @@ public class FoodServiceImp implements FoodService {
 		if(isSeasonal) {
 			foods = filterBySeasonal(foods, isSeasonal);
 		}
-		if(foodCategory != null && foodCategory.equals("")) {
+		if(foodCategory != null && !foodCategory.equals("")) {
 			foods = filterByCategory(foods, foodCategory);
 		}
 		return foods;

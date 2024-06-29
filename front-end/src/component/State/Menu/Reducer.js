@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
   error: null,
   search: [],
-  messafe: null,
+  message: null,
 };
 
 const menuItemReducer = (state = initialState, action) => {

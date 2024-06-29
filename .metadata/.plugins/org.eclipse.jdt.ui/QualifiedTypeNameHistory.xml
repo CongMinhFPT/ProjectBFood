@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="system.bfood.repository.CategoryRepository"/>
-    <fullyQualifiedTypeName name="system.bfood.service.CategoryService"/>
     <fullyQualifiedTypeName name="system.bfood.model.Category"/>
     <fullyQualifiedTypeName name="system.bfood.repository.IngredientItemRepository"/>
     <fullyQualifiedTypeName name="system.bfood.repository.IngredientCategoryRepository"/>
@@ -32,7 +30,6 @@
     <fullyQualifiedTypeName name="system.bfood.repository.UserRepository"/>
     <fullyQualifiedTypeName name="system.bfood.service.RestaurantService"/>
     <fullyQualifiedTypeName name="system.bfood.model.Restaurant"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="system.bfood.service.CartService"/>
     <fullyQualifiedTypeName name="system.bfood.repository.OrderItemRepository"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -60,4 +57,7 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
     <fullyQualifiedTypeName name="system.bfood.config.JwtTokenValidator"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonBackReference"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>
