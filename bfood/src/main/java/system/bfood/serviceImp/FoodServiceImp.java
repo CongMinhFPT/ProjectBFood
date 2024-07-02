@@ -35,7 +35,6 @@ public class FoodServiceImp implements FoodService {
 		food.setVegetarian(req.isVegetarin());
 		food.setSeasonal(req.isSeasional());
 		food.setCreationDate(new Date());
-		food.setVegetarian(true);
 
 		
 		Food saveFood = foodRepository.save(food);

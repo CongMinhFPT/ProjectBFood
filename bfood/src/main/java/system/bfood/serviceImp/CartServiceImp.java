@@ -37,7 +37,7 @@ public class CartServiceImp implements CartService {
 		Food food = foodService.findFoodById(req.getFoodId());
 		Cart cart = cartRepository.findByCustomerId(user.getId());
 		
-		for(CartItem cartItem : cart.getItem()) {
+		for(CartItem cartItem : cart.getItems()) {
 			if(cartItem.getFood().equals(food)) {
 				int newQuantity = cartItem.getQuantity() + req.getQuantity();
 				return updateCartItemQuantity(cartItem.getId(), newQuantity);
@@ -48,10 +48,10 @@ public class CartServiceImp implements CartService {
 		newCartItem.setCart(cart);
 		newCartItem.setQuantity(req.getQuantity());
 		newCartItem.setIngredients(req.getIngredients());
-		newCartItem.setTotalPrice(req.getQuantity()+food.getPrice());
+		newCartItem.setTotalPrice(req.getQuantity()*food.getPrice());
 		
 		CartItem savedCartItem = cartItemRepository.save(newCartItem);
-		cart.getItem().add(savedCartItem);
+		cart.getItems().add(savedCartItem);
 		return savedCartItem;
 	}
 
@@ -61,7 +61,7 @@ public class CartServiceImp implements CartService {
 		if(cartItemOptional.isEmpty()) {
 			throw new Exception("CartItem not found...");
 		}
-		CartItem item = new CartItem();
+		CartItem item = cartItemOptional.get();
 		item.setQuantity(quantity);
 		item.setTotalPrice(item.getFood().getPrice()*quantity);
 		return cartItemRepository.save(item);
@@ -76,7 +76,7 @@ public class CartServiceImp implements CartService {
 			throw new Exception("CartItem not found...");
 		}
 		CartItem item = cartItemOptional.get();
-		cart.getItem().remove(item);
+		cart.getItems().remove(item);
 		return cartRepository.save(cart);
 	}
 
@@ -84,7 +84,7 @@ public class CartServiceImp implements CartService {
 	public Long calculateCartTotals(Cart cart) throws Exception {
 		Long total = 0L;
 		
-		for(CartItem cartItem : cart.getItem()) {
+		for(CartItem cartItem : cart.getItems()) {
 			total += cartItem.getFood().getPrice()*cartItem.getQuantity();
 		}
 		return total;
@@ -109,7 +109,7 @@ public class CartServiceImp implements CartService {
 	@Override
 	public Cart clearCart(Long userId) throws Exception {
 		Cart cart = findCartByUserId(userId);
-		cart.getItem().clear();
+		cart.getItems().clear();
 		return cartRepository.save(cart);
 	}
 

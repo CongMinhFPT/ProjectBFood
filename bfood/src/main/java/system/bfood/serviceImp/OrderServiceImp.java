@@ -68,7 +68,7 @@ public class OrderServiceImp implements OrderService {
 
 		List<OrderItem> orderItems = new ArrayList<>();
 
-		for (CartItem cartItem : cart.getItem()) {
+		for (CartItem cartItem : cart.getItems()) {
 			OrderItem orderItem = new OrderItem();
 			orderItem.setFood(cartItem.getFood());
 			orderItem.setIngredients(cartItem.getIngredients());

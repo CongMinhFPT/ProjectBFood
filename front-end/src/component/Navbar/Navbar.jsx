@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export const Navbar = () => {
-  const { auth } = useSelector((store) => store);
+  const { auth, cart } = useSelector((store) => store);
   const navigate = useNavigate();
   const handleAvatarClick = () => {
     if (auth.user.role === "ROLE_CUSTOMER") {
@@ -18,6 +18,7 @@ export const Navbar = () => {
       navigate("/my-profile");
     }
   };
+
   return (
     <Box className="px-5 sticky top-0 z-50 py-[.8rem] bg-[#e91e63] lg:px-20 flex justify-between">
       <div className="lg:mr-10 cursor-pointer flex items-center space-x-4">
@@ -49,8 +50,8 @@ export const Navbar = () => {
           )}
         </div>
         <div className="">
-          <IconButton>
-            <Badge color="black" badgeContent={3}>
+          <IconButton onClick={() => navigate("/cart")}>
+            <Badge color="black" badgeContent={cart.cart?.items.length}>
               <ShoppingCartIcon sx={{ fontSize: "1.5rem" }} />
             </Badge>
           </IconButton>

@@ -1,0 +1,5 @@
+package system.bfood.response;
+
+public class PaymentResponse {
+
+}

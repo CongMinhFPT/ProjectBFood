@@ -13,6 +13,8 @@ import AddressCard from "./AddressCard";
 import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 import { ErrorMessage, Field, Form, Formik, validateYupSchema } from "formik";
 import Typography from "@mui/material/Typography";
+import { useDispatch, useSelector } from "react-redux";
+import { createOrder } from "../State/Orders/Action";
 
 // import * as Yup from "yup";
 
@@ -42,22 +44,42 @@ const initialValues = {
 //   city: Yup.string().required("city address requied"),
 // });
 
-const items = [1, 1];
 const Cart = () => {
   const createOrderUsingSelectedAddress = () => {};
   const handleOpenAddressModal = () => setOpen(true);
   const [open, setOpen] = React.useState(false);
+  const { cart, auth } = useSelector((store) => store);
+  const dispatch = useDispatch();
+  const delivery = 1;
+  const totalPrice = cart.cart?.total;
+  const gts = totalPrice / 10;
+
   const handleClose = () => setOpen(false);
 
-  const handleSubmit = (value) => {
-    console.log("form value", value);
+  const handleSubmit = (values) => {
+    console.log("form value", values);
+    const data = {
+      jwt: localStorage.getItem("jwt"),
+      order: {
+        restaurantId: cart.cartItems[0].food?.restaurant.id,
+        deliveryAddress: {
+          fullName: auth.user?.fullName,
+          streetAddress: values.streetAddress,
+          city: values.city,
+          state: values.state,
+          postalCode: values.pincode,
+          country: "india",
+        },
+      },
+    };
+    dispatch(createOrder(data));
   };
   return (
     <>
       <main className="lg:flex justify-between">
         <section className="lg:w-[30%] space-y-6 lg:min-h-screen pt-10">
-          {items.map((item, index) => (
-            <CartItem key={index} />
+          {cart.cartItems.map((item) => (
+            <CartItem item={item} />
           ))}
           <Divider />
           <div className="billDetails px-5 text-sm">
@@ -65,21 +87,21 @@ const Cart = () => {
             <div className="space-y-3">
               <div className="flex justify-between text-gray-400">
                 <p>Item Total</p>
-                <p>$555</p>
+                <p>${totalPrice}</p>
               </div>
               <div className="flex justify-between text-gray-400">
                 <p>Delivery Fee</p>
-                <p>$555</p>
+                <p>$1{delivery}</p>
               </div>
               <div className="flex justify-between text-gray-400">
                 <p>GST and Restaurant Charges</p>
-                <p>$555</p>
+                <p>${gts}</p>
               </div>
               <Divider />
             </div>
             <div className="pt-1 flex justify-between text-gray-400">
               <p>Total Pay</p>
-              <p>$3300</p>
+              <p>${totalPrice + delivery + gts}</p>
             </div>
           </div>
         </section>
