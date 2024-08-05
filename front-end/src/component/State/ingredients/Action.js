@@ -107,7 +107,6 @@ export const updateStockOfIngredient = ({ id, jwt }) => {
           },
         }
       );
-      console.log("get ingredients category ", response.data);
       dispatch({
         type: UPDATE_STOCK,
         payload: data,

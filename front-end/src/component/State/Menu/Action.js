@@ -33,16 +33,16 @@ export const createMenuItem = ({ menu, jwt }) => {
   };
 };
 
-export const getMenuItemsByRestaurantId = (req) => {
+export const getMenuItemsByRestaurantId = (reqData) => {
   return async (dispatch) => {
     dispatch({ type: GET_MENU_ITEMS_BY_RESTAURANT_ID_REQUEST });
     try {
       const { data } = await api.get(
-        `api/food/restaurant/${req.restaurantId}?vagetarian=${req.vegetarian}&nonveg=${req.nonveg}
-        &seasonal=${req.seasonal}&food_category=${req.foodCategory}`,
+        `api/food/restaurant/${reqData.restaurantId}?vagetarian=${reqData.vegetarian}&nonveg=${reqData.nonveg}
+        &seasonal=${reqData.seasonal}&food_category=${reqData.foodCategory}`,
         {
           headers: {
-            Authorization: `Bearer ${req.jwt}`,
+            Authorization: `Bearer ${reqData.jwt}`,
           },
         }
       );
@@ -109,15 +109,11 @@ export const deleteFoodAction =
   async (dispatch) => {
     dispatch({ type: DELETE_MENU_ITEM_REQUEST });
     try {
-      const { data } = await api.delete(
-        `api/admin/food/${foodId}`,
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-          },
-        }
-      );
+      const { data } = await api.delete(`api/admin/food/${foodId}`, {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
       console.log("update menuItems Availability", data);
       dispatch({ type: DELETE_MENU_ITEM_SUCCESS, payload: foodId });
     } catch (error) {

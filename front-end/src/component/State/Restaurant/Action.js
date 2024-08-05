@@ -100,7 +100,7 @@ export const createRestaurant = (reqData) => {
   return async (dispatch) => {
     dispatch({ type: CREATE_RESTAURANT_REQUEST });
     try {
-      const { data } = await api.post(`/api/admin/restaurant`, reqData.data, {
+      const { data } = await api.post("/api/admin/restaurants", reqData.data, {
         headers: {
           Authorization: `Bearer ${reqData.token}`,
         },
@@ -159,7 +159,7 @@ export const updateRestaurantStatus = ({ restaurantId, jwt }) => {
     dispatch({ type: UPDATE_RESTAURANT_STATUS_REQUEST });
     try {
       const res = await api.put(
-        `/api/admin/restaurants${restaurantId}/status`,
+        `/api/admin/restaurants/${restaurantId}/status`,
         {},
         {
           headers: {

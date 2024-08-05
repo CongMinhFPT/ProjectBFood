@@ -43,7 +43,7 @@ public class FoodController {
 			@RequestParam (required = false) boolean vagetarian,
 			@RequestParam (required = false) boolean seasonal,
 			@RequestParam (required = false) boolean nonveg,
-			@RequestParam(required = false) String food_category,
+			@RequestParam (required = false) String food_category,
 			@PathVariable Long restaurantId,
 			@RequestHeader ("Authorization") String jwt) throws Exception{
 		
